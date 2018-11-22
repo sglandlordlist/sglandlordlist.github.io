@@ -2,11 +2,11 @@
 
 * Building name:
 * Unit number:
-* Landlord name(first two letters only):
-* Landlord phone(last four digits only):
+* Landlord name(first 2 letters with 4 asterisks): ****
+* Landlord phone(last 4 digits only): ****
 * Period:
 * Rental:
 * Deposit deduction:
 * Short comment(one line only):
 
-#### Details
+#### Details (Optional)
