@@ -7,6 +7,6 @@
 * Period:
 * Rental:
 * Deposit deduction:
-* Short comment:
+* Short comment(one line only): 
 
 #### Details
