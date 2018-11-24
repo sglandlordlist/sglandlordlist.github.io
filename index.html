@@ -16,12 +16,12 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <h3>Singapore landlord list </h3>
-  <p>
-  A list that tracks the behaviour of landlords in Singapore, good and bad, operating in public with full transparency.
-  </p>
-  <hr/>
-  <div id="app">
+  <div id="app" style="padding: 5px">
+    <h3>Singapore landlord list </h3>
+    <p>
+    A list that tracks the behaviour of landlords in Singapore, good and bad, operating in public with full transparency.
+    </p>
+    <hr/>
     <input type="text" v-model="search" style="width: 400px; margin-left: 8px;" placeholder="Search by building name.."/>
     <table>
     <thead>
@@ -57,18 +57,18 @@
       </tr>
     </tbody>
     </table>
+    <h5>Want to update this list or have any question? Please create an <a href="https://github.com/sglandlordlist/sglandlordlist.github.io/issues/new">issue</a>. We try to keep the list as close to the fact as possible but there is no guarantee.</h5>
+    <h5>No account? Register <a href="https://github.com/join">here</a>.</h5>
+    <h5>Want to add more features to this page, check out its <a href="https://github.com/sglandlordlist/sglandlordlist.github.io">source code</a> on github.</h5>
+    <hr/>
+    <h5>Read the following guidelines before creating an issue.</h5>
+    <ul>
+      <li>Fact, only fact and full fact.</li>
+      <li>Keep both tenant's and landlord's privacy in mind. No personal identity info e.g. no full name, no full phone number. Mask personal inforation in attached images.</li>
+      <li>Stay objective and polite.</li>
+    </ul>
+    <p>Issues not following the guidelines need to get updated otherwise will be deleted.</p>
   </div>
-  <h5>Want to update this list or have any question? Please create an <a href="https://github.com/sglandlordlist/sglandlordlist.github.io/issues/new">issue</a>. We try to keep the list as close to the fact as possible but there is no guarantee.</h5>
-  <h5>No account? Register <a href="https://github.com/join">here</a>.</h5>
-  <h5>Want to add more features to this page, check out its <a href="https://github.com/sglandlordlist/sglandlordlist.github.io">source code</a> on github.</h5>
-  <hr/>
-  <h5>Read the following guidelines before creating an issue.</h5>
-  <ul>
-    <li>Fact, only fact and full fact.</li>
-    <li>Keep both tenant's and landlord's privacy in mind. No personal identity info e.g. no full name, no full phone number. Mask personal inforation in attached images.</li>
-    <li>Stay objective and polite.</li>
-  </ul>
-  <p>Issues not following the guidelines need to get updated otherwise will be deleted.</p>
 </body>
 <script>
   var app = new Vue({
