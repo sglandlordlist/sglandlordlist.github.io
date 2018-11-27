@@ -1,89 +1,108 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Singapore landlord list</title>
-  <meta name="description" content="A list that tracks the behaviour of landlords in Singapore, good and bad, operating in public with full transparency.">
+  <head>
+    <meta charset="utf-8" />
+    <title>Singapore landlord list</title>
+    <meta
+      name="description"
+      content="A list that tracks the behaviour of landlords in Singapore, good and bad, operating in public with full transparency."
+    />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <link rel="stylesheet" href="css/mini-default.min.css">
+    <link rel="stylesheet" href="css/mini-default.min.css" />
 
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script src="data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="data.js"></script>
 
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
-  <div id="app" style="padding: 5px">
-    <h3>Singapore landlord list </h3>
-    <p>
-    A list that tracks the behaviour of landlords in Singapore, good and bad, operating in public with full transparency.
-    </p>
-    <hr/>
-    <input type="text" v-model="search" style="width: 400px; margin-left: 8px;" placeholder="Search by building name.."/>
-    <table>
-    <thead>
-      <tr>
-        <th>Building</th>
-        <th>Unit</th>
-        <th>Landlord</th>
-        <th>Phone</th>
-        <th>Period</th>
-        <th>Rental</th>
-        <th>Deduction</th>
-        <th>Other</th>
-        <th>Comment</th>
-        <th>Link</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="entry in filteredLandlords">
-        <td data-label="Building">{{ entry.building }}</td>
-        <td data-label="Unit">{{ entry.unit }}</td>
-        <td data-label="Landlord">{{ entry.landlord }}</td>
-        <td data-label="Phone">{{ entry.phone }}</td>
-        <td data-label="Period">{{ entry.period }}</td>
-        <td data-label="Rental">{{ entry.rental }}</td>
-        <td data-label="Deduction">{{ entry.deduction }}</td>
-        <td data-label="Other">{{ entry.other }}</td>
-        <td data-label="Comment">{{ entry.comment }}</td>
-        <td data-label="Link">
-          <a v-bind:href="'https://github.com/sglandlordlist/sglandlordlist.github.io/issues/' + entry.issue">
-            #{{ entry.issue }}
-          </a>
-        </td>
-      </tr>
-    </tbody>
-    </table>
-    <h5>Want to update this list or have any question? Please create an <a href="https://github.com/sglandlordlist/sglandlordlist.github.io/issues/new">issue</a>. We try to keep the list as close to the fact as possible but there is no guarantee.</h5>
-    <h5>No account? Register <a href="https://github.com/join">here</a>.</h5>
-    <h5>Want to add more features to this page, check out its <a href="https://github.com/sglandlordlist/sglandlordlist.github.io">source code</a> on github.</h5>
-    <hr/>
-    <h5>Read the following guidelines before creating an issue.</h5>
-    <ul>
-      <li>Fact, only fact and full fact.</li>
-      <li>Keep both tenant's and landlord's privacy in mind. No personal identity info e.g. no full name, no full phone number. Mask personal inforation in attached images.</li>
-      <li>Stay objective and polite.</li>
-    </ul>
-    <p>Issues not following the guidelines need to get updated otherwise will be deleted.</p>
-  </div>
-</body>
-<script>
-  var app = new Vue({
-    el: '#app',
-    data: {
-      search: "",
-      landlords: landlords
-    },
-    computed: {
-      filteredLandlords() {
-        return this.landlords.filter(entry => {
-          return entry.building.toLowerCase().includes(this.search.toLowerCase());
-        });
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="app" style="padding: 5px">
+      <h3>Singapore landlord list</h3>
+      <p>
+        A list that tracks the behaviour of landlords in Singapore, good and bad, operating in public with full
+        transparency.
+      </p>
+      <hr />
+      <input
+        type="text"
+        v-model="search"
+        style="width: 400px; margin-left: 8px;"
+        placeholder="Search by building name.."
+      />
+      <table>
+        <thead>
+          <tr>
+            <th>Building</th>
+            <th>Unit</th>
+            <th>Landlord</th>
+            <th>Phone</th>
+            <th>Period</th>
+            <th>Rental</th>
+            <th>Deduction</th>
+            <th>Other</th>
+            <th>Comment</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="entry in filteredLandlords">
+            <td data-label="Building">{{ entry.building }}</td>
+            <td data-label="Unit">{{ entry.unit }}</td>
+            <td data-label="Landlord">{{ entry.landlord }}</td>
+            <td data-label="Phone">{{ entry.phone }}</td>
+            <td data-label="Period">{{ entry.period }}</td>
+            <td data-label="Rental">{{ entry.rental }}</td>
+            <td data-label="Deduction">{{ entry.deduction }}</td>
+            <td data-label="Other">{{ entry.other }}</td>
+            <td data-label="Comment">{{ entry.comment }}</td>
+            <td data-label="Link">
+              <a v-bind:href="'https://github.com/sglandlordlist/sglandlordlist.github.io/issues/' + entry.issue">
+                #{{ entry.issue }}
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h5>
+        Want to update this list or have any question? Please create an
+        <a href="https://github.com/sglandlordlist/sglandlordlist.github.io/issues/new">issue</a>. We try to keep the
+        list as close to the fact as possible but there is no guarantee.
+      </h5>
+      <h5>No account? Register <a href="https://github.com/join">here</a>.</h5>
+      <h5>
+        Want to add more features to this page, check out its
+        <a href="https://github.com/sglandlordlist/sglandlordlist.github.io">source code</a> on github.
+      </h5>
+      <hr />
+      <h5>Read the following guidelines before creating an issue.</h5>
+      <ul>
+        <li>Fact, only fact and full fact.</li>
+        <li>
+          Keep both tenant's and landlord's privacy in mind. No personal identity info e.g. no full name, no full phone
+          number. Mask personal inforation in attached images.
+        </li>
+        <li>Stay objective and polite.</li>
+      </ul>
+      <p>Issues not following the guidelines need to get updated otherwise will be deleted.</p>
+    </div>
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        search: "",
+        landlords: landlords
+      },
+      computed: {
+        filteredLandlords() {
+          return this.landlords.filter(entry => {
+            return entry.building.toLowerCase().includes(this.search.toLowerCase());
+          });
+        }
       }
-    }
-  });
-</script>
+    });
+  </script>
 </html>

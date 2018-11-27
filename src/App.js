@@ -1,14 +1,91 @@
+// Libs
 import React, { Component } from "react";
+import { Table } from "antd";
+
+// Style
+import "../node_modules/antd/dist/antd.css";
+
+// Constant
+import { DATA } from "./data.js";
+
+const columns = [
+  { title: "Building", dataIndex: "building", key: "0" },
+  { title: "Unit", dataIndex: "unit", key: "1" },
+  { title: "Landlord", dataIndex: "landlord", key: "2" },
+  { title: "Phone", dataIndex: "phone", key: "3" },
+  { title: "Period", dataIndex: "period", key: "4" },
+  { title: "Rental", dataIndex: "rental", key: "5", render: data => <span>{`$${data}`}</span> },
+  { title: "Deduction", dataIndex: "deduction", key: "6", render: data => <span>{`$${data}`}</span> },
+  {
+    title: "Other",
+    dataIndex: "other",
+    key: "7",
+    render: data => <span>{`$${data}`}</span>
+  },
+  { title: "Comment", dataIndex: "comment", key: "8" },
+  {
+    title: "Details",
+    key: "issue",
+    fixed: "right",
+    width: 100,
+    render: data => (
+      <a href={`https://github.com/sglandlordlist/sglandlordlist.github.io/issues/${data.issue}`}>#{data.issue}</a>
+    )
+  }
+];
 
 class App extends Component {
+  state = {};
+
+  componentDidMount() {
+    const dataClone = [...DATA];
+    this.setState({ data: dataClone, dataOrigin: dataClone });
+  }
+
+  handleInputFilterChange = event => {
+    const { value } = event.target;
+
+    const dataClone = [...this.state.dataOrigin];
+    if (value.length === 0 || !value) {
+      this.setState({ data: dataClone });
+      return;
+    }
+
+    const dataFiltered = dataClone.filter(entry => {
+      return entry.building.toLowerCase().includes(value.toLowerCase());
+    });
+
+    this.setState({ data: dataFiltered });
+  };
+
   render() {
+    const { data } = this.state;
+
     return (
-      <div className="App">
-        <h1>Singapore Landlord List </h1>
+      <div className="app">
+        <h1 className="app__title">
+          <img className="app__logo" src="./apple-icon-180x180.png" />
+          <span>Singapore Landlord List</span>
+        </h1>
         <p>
           A list that tracks the behaviour of landlords in Singapore, good and bad, operating in public with full
           transparency.
         </p>
+
+        <div className="bp3-input-group">
+          <span className="bp3-icon bp3-icon-search" />
+          <input
+            className="bp3-input"
+            type="search"
+            placeholder="Search condominium or building name here ..."
+            dir="auto"
+            onChange={this.handleInputFilterChange}
+          />
+        </div>
+
+        <br />
+
+        <Table className="app__table" columns={columns} dataSource={data} scroll={{ x: 1300 }} pagination={false} />
 
         <p>
           Want to update this list or have any question? Please create an{" "}
