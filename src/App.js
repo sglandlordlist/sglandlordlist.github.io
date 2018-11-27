@@ -9,25 +9,23 @@ import "../node_modules/antd/dist/antd.css";
 import { DATA } from "./data.js";
 
 const columns = [
-  { title: "Building", dataIndex: "building", key: "0" },
-  { title: "Unit", dataIndex: "unit", key: "1" },
-  { title: "Landlord", dataIndex: "landlord", key: "2" },
-  { title: "Phone", dataIndex: "phone", key: "3" },
-  { title: "Period", dataIndex: "period", key: "4" },
-  { title: "Rental", dataIndex: "rental", key: "5", render: data => <span>{`$${data}`}</span> },
-  { title: "Deduction", dataIndex: "deduction", key: "6", render: data => <span>{`$${data}`}</span> },
+  { title: "Building", dataIndex: "building", key: "building", fixed: "left", width: 200 },
+  { title: "Unit", dataIndex: "unit", key: "unit" },
+  { title: "Landlord", dataIndex: "landlord", key: "landlord" },
+  { title: "Phone", dataIndex: "phone", key: "phone" },
+  { title: "Period", dataIndex: "period", key: "period" },
+  { title: "Rental", dataIndex: "rental", key: "rental", render: data => <span>{`$${data}`}</span> },
+  { title: "Deduction", dataIndex: "deduction", key: "deduction", render: data => <span>{`$${data}`}</span> },
   {
     title: "Other",
     dataIndex: "other",
-    key: "7",
+    key: "other",
     render: data => <span>{`$${data}`}</span>
   },
   { title: "Comment", dataIndex: "comment", key: "8" },
   {
     title: "Details",
-    key: "issue",
-    fixed: "right",
-    width: 100,
+    key: "comment",
     render: data => (
       <a href={`https://github.com/sglandlordlist/sglandlordlist.github.io/issues/${data.issue}`}>#{data.issue}</a>
     )
